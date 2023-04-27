@@ -21,7 +21,7 @@ export class StudComponent {
     
   }
   getAllEmployee() {
-    this.http.get("http://localhost:8000/user/getAll")
+    this.http.get("https://crud-employee-server-anushka.onrender.com/user/getAll")
     .subscribe(async (resultData:any)=>{
       
       this.EmployeeArray = await resultData;
@@ -41,7 +41,7 @@ export class StudComponent {
   // }
 
   setDelete(data: any) {
-    this.http.delete("http://localhost:8000/user/remove"+"/"+data._id).subscribe((resultData: any)=>
+    this.http.delete("https://crud-employee-server-anushka.onrender.com/user/remove"+"/"+data._id).subscribe((resultData: any)=>
     {
       console.log(resultData);
       alert("Employee Deleted...")
@@ -68,7 +68,7 @@ export class StudComponent {
       "address":this.address,
       "phone":this.phone
     };
-    this.http.put("http://localhost:8000/user/update"+"/"+this.currentEmployeeID,bodyData).subscribe((resultData: any)=>{
+    this.http.put("https://crud-employee-server-anushka.onrender.com/user/update"+"/"+this.currentEmployeeID,bodyData).subscribe((resultData: any)=>{
       console.log(resultData);
       alert("Employee Edited Successfully..")
       this.getAllEmployee();
@@ -94,7 +94,7 @@ export class StudComponent {
       "address":this.address,
       "phone":this.phone
     };
-    this.http.post("http://localhost:8000/user/create",bodyData).subscribe((resultData: any)=>{
+    this.http.post("https://crud-employee-server-anushka.onrender.com/user/create",bodyData).subscribe((resultData: any)=>{
       console.log(resultData);
       alert("Employee Registered Successfully..")
       this.name = '';
